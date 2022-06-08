@@ -29,6 +29,11 @@ function drawBottomBorder (num) {
     return left + line + right;
 }
 
+function drawBarsAround (str){                       
+    const left = "\u2503";
+    const right = "\u2503";
+    return left + str + right;
+}
 
 
 
