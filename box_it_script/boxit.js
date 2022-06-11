@@ -1,3 +1,4 @@
+#! /usr/bin/env node    
 function drawLine (num) {  
     let line = []
     const base = "\u2501"
@@ -6,7 +7,6 @@ function drawLine (num) {
     }
     return line;
 }
-//console.log(drawLine(4)); //for check
 
 function drawTopBorder (num) {    
     const left = "\u250F";
@@ -70,6 +70,36 @@ function boxIt(arr){
 }
 
 //console.log(boxIt(['Joe Snow','Cersei Lannister'])); //'Joe Snow','Cersei Lannister','Daenerys Targaryen'
+
+//Turn file into a script to use if from command line : $ node boxit.js 
+let script = process.argv.slice(2);
+console.log(boxIt(script));
+
+//STRETCH  
+//1) Add "#! /usr/bin/env node" at the first line of the file, and run "chmod +x boxit.js" in terminal
+// ./boxit.js 'Joe Snow' 'Cersei Lannister' 'Daenerys Targaryen'
+
+//2) 
+// npm install csv-parser
+const csv = require(`csv-parser`);
+const fs = require(`fs`);
+let results = [] ;
+
+fs.createReadStream(`characters.csv`)
+    .pipe(csv({headers:false}))
+    .on('data',(data) => results.push([data]))
+    .on('end', ()=> {
+        const csvArray = [];
+        for (i of results){
+            if (script[0].includes(".csv")){
+            let j = results[i[i]]+ "\u2503" +results[i[i+1]]
+            csvArray.push(j);
+            }
+         }        
+        //console.log(boxIt(csvArray));
+    });
+
+
 
 
 
