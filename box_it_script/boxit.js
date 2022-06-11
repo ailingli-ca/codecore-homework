@@ -45,14 +45,14 @@ function boxIt(arr){
         return drawTopBorder(arr[0].length) + '\n' + drawBarsAround(arr[0])+ '\n' + drawBottomBorder(arr[0].length)
     }
       
-    for (let i =0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (arr[i].length > max ){
             max = arr[i].length
         }     
     }  
 
     line += drawTopBorder(max)+'\n';
-    for (let i = 0; i< arr.length; i++){
+    for (let i = 0; i < arr.length; i++){
         let total = arr[i];
         if (arr[i].length < max){
             for (let space = 0; space < max - arr[i].length; space++){
@@ -60,7 +60,7 @@ function boxIt(arr){
             }
         }
 
-        if(i == arr.length-1){
+        if(i === arr.length-1){
             line += drawBarsAround(total)+"\n"+drawBottomBorder(max)
         } else {
             line += drawBarsAround(total)+"\n"+drawMiddleBorder(max)+"\n"
