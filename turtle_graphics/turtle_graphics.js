@@ -186,7 +186,7 @@ if (fileInput[0].includes("--output")){
     const file = fileInput[0].split("=");
     
     fileName = file[1];
-    console.log(fileName);
+    //console.log(fileName);
 
     const result = forScript(fileInput[1]);
 
