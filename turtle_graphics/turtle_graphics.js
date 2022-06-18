@@ -109,7 +109,7 @@ class Turtle {
         draw += '-- END LOG';
 
         console.log(draw);
-        //return draw; 
+        return draw; 
 
     }
 
