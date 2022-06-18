@@ -58,14 +58,12 @@ class Turtle {
     }
 
     allPoints(){
-        //console.log(this.p)
         return this        
     }
 
     print(){
         this.xMax = 0;
         this.yMax = 0;
-
 
         for (let i = 0; i < this.p.length; i++){
             let xVal = this.p[i][0];
@@ -77,13 +75,11 @@ class Turtle {
             
             if (yVal > this.yMax){
                 this.yMax = yVal;
-            }       
-        
+            }           
         };
         
         this.max = [this.xMax, this.yMax];
         //console.log(this.max); 
-
 
         let draw = "-- BEGIN LOG" +"\n";
 
@@ -111,63 +107,65 @@ class Turtle {
 
         };
         draw += '-- END LOG';
-        return console.log(draw);
+
+        console.log(draw);
         //return draw; 
 
     }
 
 }
 
-const flash = new Turtle(0, 0).forward(3).right().forward(3);
-flash.allPoints()
-flash.print()
+// const flash = new Turtle(0, 0).forward(3).right().forward(3);
+// flash.allPoints()
+// flash.print()
 
-new Turtle(0, 4)
-.forward(3)
-.left()
-.forward(3)
-.right()
-.forward(5)
-.right()
-.forward(8)
-.right()
-.forward(5)
-.right()
-.forward(3)
-.left()
-.forward(3)
-.print();
+// new Turtle(0, 4)
+// .forward(3)
+// .left()
+// .forward(3)
+// .right()
+// .forward(5)
+// .right()
+// .forward(8)
+// .right()
+// .forward(5)
+// .right()
+// .forward(3)
+// .left()
+// .forward(3)
+// .print();
 
 //STRETCH  
 //As A Script
 
-function forScript (){
-    let script = process.argv[2];
-    let terminalInput = script.split('-');
+function forScript (string){
+
+    let terminalInput = string.split('-');
+   
     let turtleMove = [];
     
-
     for (let i = 0; i < terminalInput.length; i++){
         turtleMove.push(terminalInput[i]);
     }
 
-    let x = 0;
-    let y = 0;
+    let start_x = 0;
+    let start_y = 0;
 
     if (terminalInput[0].includes('t')){
-        x = parseInt(terminalInput[1]);
-        y = parseInt(terminalInput[3]);
+        start_x = parseInt(terminalInput[0][1]);
+        start_y = parseInt(terminalInput[0][3]);
     }
 
-    let scriptTurtle = new Turtle (x, y);
+    const scriptTurtle = new Turtle (start_x, start_y);
+    //console.log(scriptTurtle);
   
     for (let j = 0; j < turtleMove.length; j++){
-        if(turtleMove.includes('f')){
+        if(turtleMove[j].includes('f')){
             let count = parseInt(turtleMove[j].slice(1));
             scriptTurtle.forward(count);
-        } else if(turtleMove.includes('r')){
+        } else if(turtleMove[j].includes('r')){
             scriptTurtle.right();
-        } else if(turtleMove.includes('l')){
+        } else if(turtleMove[j].includes('l')){
             scriptTurtle.left();
         };
         
@@ -175,29 +173,32 @@ function forScript (){
     return scriptTurtle.print();
 }
 
-// // $ node turtle.js t5,5-f10-r-f5-r-f10-r-f5-r-f2-r-f5-l-f2-l-f5
+// $ node turtle_graphics.js t5,5-f10-r-f5-r-f10-r-f5-r-f2-r-f5-l-f2-l-f5
 
 
-// // 2) Save To a File
+// 2) Save To a File
 
 const fs = require("fs");
 
 let fileInput = process.argv.slice(2);
+
 if (fileInput[0].includes("--output")){
     const file = fileInput[0].split("=");
+    
     fileName = file[1];
-    const fileArr = fileInput[1].split("-");
-    const result = forScript(fileArr);
+    console.log(fileName);
+
+    const result = forScript(fileInput[1]);
 
     fs.writeFile(fileName, result, (err) => {
         if (err) {
             console.log('Error', err)
         } else {
-            console.log(`🐢 Drawing written to ${fileInput}`)
+            console.log(`🐢 Drawing written to ${fileName}`)
         };
     })
 } else {
-    forScript();
+    forScript(fileInput[0]);
 }
 
-// node     --output=drawing.txt f10-r-f10-r-f10-r-f10
+// // $ node turtle_graphics.js --output=drawing.txt f10-r-f10-r-f10-r-f10
