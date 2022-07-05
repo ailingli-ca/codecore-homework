@@ -1,6 +1,6 @@
 <%- include("../partials/header.ejs") %>
 
-<div class="card mb-4">  
+<div class="mx-3 border">  
   <div class="card-body">
     <h5><%- cohort.name %></h5>
     <p class="card-body"><%- cohort.members %></p>
@@ -13,8 +13,8 @@
 
       <div class="form-check">
         <input class="form-check-input" type="radio" name="method"
-        id="TeamCount" value="TeamCount" <% if (method && method == "TeamCount" ) { %> checked <%
-        } %> />
+          id="TeamCount" value="TeamCount" <% if (method && method == "TeamCount" ) { %> checked <%
+          } %> />
         <label class="form-check-label" for="TeamCount"> Team Count </label>
       </div>
       <div class="form-check">
@@ -43,7 +43,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"> #</th>
           <th scope="col">Members</th>
         </tr>
       </thead>
@@ -58,11 +58,11 @@
     </table>
     
   <% } %> 
-  <div class="form-group mt-3">
+  <div class="form-group mt-3 ms-3 me-3">
     <a href="/cohorts/<%- cohort.id %>/edit" class="form-control mt-3 btn btn-outline-primary" value="Edit"> Edit</a>
         <form action="/cohorts/<%- cohort.id %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" class="form-control mt-3 btn btn-outline-danger" value="Delete"> 
+          <input type="submit" class="form-control mt-3 mb-3 btn btn-outline-danger" value="Delete"> 
         </form>
   </div>
   
