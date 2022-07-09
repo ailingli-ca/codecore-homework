@@ -1,0 +1,71 @@
+<%- include("../partials/header.ejs") %>
+
+<div class="mx-3 border">  
+  <div class="card-body">
+    <h5><%- cohort.name %></h5>
+    <p class="card-body"><%- cohort.members %></p>
+   
+  </div> 
+  <div class="border my-3"></div>
+  <div class="from-group px-3">
+    <form action="/cohorts/<%- cohort.id %>" method="get">
+      <label>Method</label>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="method"
+          id="TeamCount" value="TeamCount" <% if (method && method == "TeamCount" ) { %> checked <%
+          } %> />
+        <label class="form-check-label" for="TeamCount"> Team Count </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="method"
+        id="NumberPerTeam" value="NumberPerTeam" <% if (method && method == "NumberPerTeam" ) { %>
+        checked <% } %> />
+        <label class="form-check-label" for="NumberPerTeam">
+          Number Per Team
+        </label>
+      </div>
+      <div class="form-group mt-3">
+        <label for="quantity">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          name="quantity"
+          <% if(quantity){ %>
+        value="<%- quantity %>" <% } %> />
+        <button class="form-control mt-3 btn btn-outline-primary">
+          Assign Teams
+        </button>        
+      </div>
+    </form>
+  </div>
+  <% if (teams.length > 0) { %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> #</th>
+          <th scope="col">Members</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% teams.forEach((team, index) => { %>
+        <tr>
+          <th scope="row"><%- index + 1 %></th>
+          <td><%- team %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    
+  <% } %> 
+  <div class="form-group mt-3 ms-3 me-3">
+    <a href="/cohorts/<%- cohort.id %>/edit" class="form-control mt-3 btn btn-outline-primary" value="Edit"> Edit</a>
+        <form action="/cohorts/<%- cohort.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" class="form-control mt-3 mb-3 btn btn-outline-danger" value="Delete"> 
+        </form>
+  </div>
+  
+</div>
+
+<%- include("../partials/footer.ejs") %>
