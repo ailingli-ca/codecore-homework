@@ -1,0 +1,19 @@
+table.letters {
+    border-spacing: 0.3em;
+}
+
+table.letters td {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 1.2em;
+    padding: 0.3em;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+table.letters td.selected {
+    border: 1px solid white;
+    color: white;
+    background-color: orangered;
+}
