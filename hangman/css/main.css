@@ -18,17 +18,17 @@ table.letters td.selected {
     background-color: orangered;
 }
 
-table.mysteryWord {
+table.randomWord {
     padding-top: 1em;
     padding-left: 1em;
     border-spacing: 0.5em;
 }
   
-table.mysteryWord tr {
+table.randomWord tr {
     height: 1.7em;
 }
 
-table.mysteryWord td {
+table.randomWord td {
     width: 1.7em;
     padding: 0.2em;
     font-size: 1.5em;
