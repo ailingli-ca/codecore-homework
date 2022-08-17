@@ -17,3 +17,21 @@ table.letters td.selected {
     color: white;
     background-color: orangered;
 }
+
+table.mysteryWord {
+    padding-top: 1em;
+    padding-left: 1em;
+    border-spacing: 0.5em;
+}
+  
+table.mysteryWord tr {
+    height: 1.7em;
+}
+
+table.mysteryWord td {
+    width: 1.7em;
+    padding: 0.2em;
+    font-size: 1.5em;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
