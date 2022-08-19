@@ -1,0 +1,37 @@
+table.letters {
+    border-spacing: 0.3em;
+}
+
+table.letters td {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 1.2em;
+    padding: 0.3em;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+table.letters td.selected {
+    border: 1px solid white;
+    color: white;
+    background-color: orangered;
+}
+
+table.randomWord {
+    padding-top: 1em;
+    padding-left: 1em;
+    border-spacing: 0.5em;
+}
+  
+table.randomWord tr {
+    height: 1.7em;
+}
+
+table.randomWord td {
+    width: 1.7em;
+    padding: 0.2em;
+    font-size: 1.5em;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
